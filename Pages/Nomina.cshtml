@@ -1,0 +1,40 @@
+﻿@page
+@model Practica_II.Pages.NominaModel
+@{
+
+}
+
+<h1>Nomina Empleados</h1>
+<table style="width: 100%" border="1">
+     
+
+    <tr>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Cargo</th> 
+        <th>Sueldo Mensual</th>
+        <th>Descuanto AFP</th>
+        <th>Descuento ARS</th>
+        <th>Descuento IRS</th>
+        <th>Total Descuentos</th>
+        <th>Salario Neto</th>
+    <tr/>
+    
+        @{ foreach (Empleado empleado in Model.ListaEmpleado)
+            {
+                <tr>
+                <td>@empleado.Nombres</td>
+                <td>@empleado.Apellidos</td>
+                <td>@empleado.Cargo</td>
+                <td>@empleado.SalarioMensual</td>
+                <td>@string.Format("{0:#,0.00}", @empleado.DescuentoAFP)</td>
+                <td>@string.Format("{0:#,0.00}", @empleado.DescuentoARS)</td>
+                <td>@string.Format("{0:#,0.00}", @empleado.DescuentoISR)</td>
+                <td>@string.Format("{0:#,0.00}", @empleado.TotalDescuento)</td>
+                <td>@string.Format("{0:#,0.00}", @empleado.SalarioNeto)</td>
+                </tr>
+                }
+            }
+
+
+</table>
